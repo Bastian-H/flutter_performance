@@ -1,4 +1,3 @@
-// pages/list_page.dart
 import 'package:flutter/material.dart';
 
 class ListPage extends StatelessWidget {

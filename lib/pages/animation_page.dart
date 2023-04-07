@@ -1,4 +1,3 @@
-// pages/animation_page.dart
 import 'package:flutter/material.dart';
 
 class AnimationPage extends StatefulWidget {
