@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
+            key: Key("List Page"),
             title: Text("List Page"),
             onTap: () {
               Navigator.push(
@@ -25,6 +26,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
+            key: Key("Image Page"),
             title: Text("Image Page"),
             onTap: () {
               Navigator.push(
@@ -34,6 +36,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
+            key: Key("Animation Page"),
             title: Text("Animation Page"),
             onTap: () {
               Navigator.push(
@@ -43,6 +46,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
+            key: Key("Network Page"),
             title: Text("Network Page"),
             onTap: () {
               Navigator.push(
@@ -52,12 +56,14 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
+            key: Key("CPU Workload"),
             title: Text("CPU Workload"),
             onTap: () {
               runCpuWorkload(Duration(seconds: 10));
             },
           ),
           ListTile(
+            key: Key("RAM Workload"),
             title: Text("RAM Workload"),
             onTap: () {
               runRamWorkload(Duration(seconds: 10));
