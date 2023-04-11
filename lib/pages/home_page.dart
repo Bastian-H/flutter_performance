@@ -7,66 +7,68 @@ import 'list_page.dart';
 import 'network_page.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Performance Test"),
+        title: const Text("Flutter Performance Test"),
       ),
       body: ListView(
         children: [
           ListTile(
-            key: Key("List Page"),
-            title: Text("List Page"),
+            key: const Key('List Page'),
+            title: const Text('List Page'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ListPage()),
+                MaterialPageRoute(builder: (context) => const ListPage()),
               );
             },
           ),
           ListTile(
-            key: Key("Image Page"),
-            title: Text("Image Page"),
+            key: const Key("Image Page"),
+            title: const Text("Image Page"),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ImagePage()),
+                MaterialPageRoute(builder: (context) => const ImagePage()),
               );
             },
           ),
           ListTile(
-            key: Key("Animation Page"),
-            title: Text("Animation Page"),
+            key: const Key("Animation Page"),
+            title: const Text("Animation Page"),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AnimationPage()),
+                MaterialPageRoute(builder: (context) => const AnimationPage()),
               );
             },
           ),
           ListTile(
-            key: Key("Network Page"),
-            title: Text("Network Page"),
+            key: const Key("Network Page"),
+            title: const Text("Network Page"),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => NetworkPage()),
+                MaterialPageRoute(builder: (context) => const NetworkPage()),
               );
             },
           ),
           ListTile(
-            key: Key("CPU Workload"),
-            title: Text("CPU Workload"),
+            key: const Key("CPU Workload"),
+            title: const Text("CPU Workload"),
             onTap: () {
-              runCpuWorkload(Duration(seconds: 10));
+              runCpuWorkload(const Duration(seconds: 10));
             },
           ),
           ListTile(
-            key: Key("RAM Workload"),
-            title: Text("RAM Workload"),
+            key: const Key("RAM Workload"),
+            title: const Text("RAM Workload"),
             onTap: () {
-              runRamWorkload(Duration(seconds: 10));
+              runRamWorkload(const Duration(seconds: 10));
             },
           ),
         ],

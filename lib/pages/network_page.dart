@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkPage extends StatefulWidget {
+  const NetworkPage({Key? key}) : super(key: key);
+
   @override
   _NetworkPageState createState() => _NetworkPageState();
 }
@@ -26,7 +28,7 @@ class _NetworkPageState extends State<NetworkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Network Page'),
+        title: const Text('Network Page'),
       ),
       body: FutureBuilder<List<dynamic>>(
         future: _fetchData(),
@@ -45,7 +47,7 @@ class _NetworkPageState extends State<NetworkPage> {
             return Center(child: Text('${snapshot.error}'));
           }
 
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

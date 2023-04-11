@@ -50,7 +50,7 @@ class _AnimationPageState extends State<AnimationPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animation Page'),
+        title: const Text('Animation Page'),
       ),
       body: Center(
         child: Transform.rotate(
@@ -64,7 +64,7 @@ class _AnimationPageState extends State<AnimationPage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Text('FPS: $_fps'),
         ),
       ),

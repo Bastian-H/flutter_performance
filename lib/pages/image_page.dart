@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ImagePage extends StatelessWidget {
+  const ImagePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Page'),
+        title: const Text('Image Page'),
       ),
       body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
         ),
         itemCount: 30,

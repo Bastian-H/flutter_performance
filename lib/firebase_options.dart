@@ -63,8 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '70389988900',
     projectId: 'flutter-performance-1004',
     storageBucket: 'flutter-performance-1004.appspot.com',
-    iosClientId:
-        '70389988900-2hb624hrcin5ja8slenplcbnsfi4f30c.apps.googleusercontent.com',
+    iosClientId: '70389988900-2hb624hrcin5ja8slenplcbnsfi4f30c.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterPerformance',
   );
 }
