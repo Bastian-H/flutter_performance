@@ -10,8 +10,6 @@ class AnimationPage extends StatefulWidget {
 
 class _AnimationPageState extends State<AnimationPage> {
   late Ticker _ticker;
-  int _frameCount = 0;
-  int _fps = 0;
   double _angle = 0;
 
   @override
@@ -28,14 +26,6 @@ class _AnimationPageState extends State<AnimationPage> {
   }
 
   void _onTick(Duration elapsed) {
-    _frameCount++;
-
-    // Calculate FPS every second
-    if (elapsed.inMilliseconds % 1000 == 0) {
-      _fps = _frameCount;
-      _frameCount = 0;
-    }
-
     // Update the angle of rotation
     _angle += 0.1;
 
@@ -60,12 +50,6 @@ class _AnimationPageState extends State<AnimationPage> {
             height: 100,
             color: Colors.blue,
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Text('FPS: $_fps'),
         ),
       ),
     );
