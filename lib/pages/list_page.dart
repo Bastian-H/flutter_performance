@@ -1,3 +1,5 @@
+//list_page.dart
+
 import 'package:flutter/material.dart';
 
 class ListPage extends StatefulWidget {
@@ -9,11 +11,13 @@ class ListPage extends StatefulWidget {
 
 class ListPageState extends State<ListPage> {
   late ScrollController scrollController;
+  DateTime? _startTime;
 
   @override
   void initState() {
     super.initState();
     scrollController = ScrollController();
+    _startTime = DateTime.now();
   }
 
   @override
@@ -24,6 +28,13 @@ class ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_startTime != null) {
+        print('Page load time: ${DateTime.now().difference(_startTime!)}');
+        _startTime = null; // Prevents multiple prints
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('List Page'),
