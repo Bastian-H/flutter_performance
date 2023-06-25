@@ -1,5 +1,4 @@
 //home_page.dart
-
 import 'package:flutter/material.dart';
 
 import '../workload.dart';
@@ -45,7 +44,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AnimationPage()),
+                MaterialPageRoute(builder: (context) => AnimationPage()),
               );
             },
           ),
@@ -63,14 +62,21 @@ class HomePage extends StatelessWidget {
             key: const Key("CPU Workload"),
             title: const Text("CPU Workload"),
             onTap: () {
-              runCpuWorkload(const Duration(seconds: 10));
+              runCpuWorkload(context);
+            },
+          ),
+          ListTile(
+            key: const Key("CPU Workload Fixed Time"),
+            title: const Text("CPU Workload Fixed Time"),
+            onTap: () {
+              runCpuWorkloadFixedTime(context, const Duration(seconds: 10));
             },
           ),
           ListTile(
             key: const Key("RAM Workload"),
             title: const Text("RAM Workload"),
             onTap: () {
-              runRamWorkload(const Duration(seconds: 10));
+              runRamWorkload(context, const Duration(seconds: 10));
             },
           ),
         ],

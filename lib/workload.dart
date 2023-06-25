@@ -1,6 +1,7 @@
 //workload.dart
 
 import 'dart:async';
+import 'package:flutter/material.dart';
 
 int fibonacci(int n) {
   if (n <= 1) {
@@ -20,27 +21,74 @@ List<String> generateLargeStrings(int count, int size) {
   return largeStrings;
 }
 
-Future<void> runCpuWorkload(Duration duration) async {
-  int n = 35;
-  int result = 0;
-  DateTime startTime = DateTime.now();
+Future<void> runCpuWorkload(BuildContext context) async {
+  int n = 44;
 
-  while (DateTime.now().difference(startTime) < duration) {
-    result = fibonacci(n);
-  }
+  Future<void> workloadFuture = Future<void>(() {
+    DateTime startTime = DateTime.now();
+    int result = fibonacci(n);
+    DateTime endTime = DateTime.now();
+    Duration computationTime = endTime.difference(startTime);
 
-  print('Fibonacci result: $result');
+    print('Fibonacci result: $result');
+    print(
+        'Computation time: ${computationTime.inSeconds.toString().padLeft(2, '0')}.${(computationTime.inMilliseconds % 1000).toString().padLeft(3, '0')} seconds');
+  });
+
+  Future<void> delayFuture = Future.delayed(const Duration(seconds: 10));
+
+  await Future.wait([workloadFuture, delayFuture]);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('CPU Workload Completed')),
+  );
 }
 
-Future<void> runRamWorkload(Duration duration) async {
+Future<void> runRamWorkload(BuildContext context, Duration duration) async {
   List<String> largeStrings = [];
   int count = 1000;
   int size = 10000;
-  DateTime startTime = DateTime.now();
 
-  while (DateTime.now().difference(startTime) < duration) {
-    largeStrings = generateLargeStrings(count, size);
-  }
+  Future<void> workloadFuture = Future<void>(() {
+    DateTime startTime = DateTime.now();
 
-  print('Generated ${largeStrings.length} large strings');
+    while (DateTime.now().difference(startTime) < duration) {
+      largeStrings = generateLargeStrings(count, size);
+    }
+
+    print('Generated ${largeStrings.length} large strings');
+  });
+
+  Future<void> delayFuture = Future.delayed(const Duration(seconds: 10));
+
+  await Future.wait([workloadFuture, delayFuture]);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('RAM Workload Completed')),
+  );
+}
+
+Future<void> runCpuWorkloadFixedTime(
+    BuildContext context, Duration duration) async {
+  int n = 20; // A smaller Fibonacci number that can be computed quickly
+  int count = 0;
+
+  Future<void> workloadFuture = Future<void>(() {
+    DateTime startTime = DateTime.now();
+
+    while (DateTime.now().difference(startTime) < duration) {
+      fibonacci(n);
+      count++;
+    }
+
+    print('Computed $count Fibonacci numbers in 10 seconds');
+  });
+
+  Future<void> delayFuture = Future.delayed(const Duration(seconds: 10));
+
+  await Future.wait([workloadFuture, delayFuture]);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('CPU Workload (Fixed Time) Completed')),
+  );
 }

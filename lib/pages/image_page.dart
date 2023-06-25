@@ -15,7 +15,7 @@ class ImagePage extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
         ),
-        itemCount: 30,
+        itemCount: 200,
         itemBuilder: (context, index) {
           return Image.asset('lib/images/image${index + 1}.jpg');
         },

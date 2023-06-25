@@ -15,7 +15,7 @@ class NetworkPage extends StatefulWidget {
 class _NetworkPageState extends State<NetworkPage> {
   Future<List<dynamic>> _fetchData() async {
     final response = await http.get(
-      Uri.parse('https://jsonplaceholder.typicode.com/photos?_limit=20'),
+      Uri.parse('https://jsonplaceholder.typicode.com/photos?_limit=200'),
     );
 
     if (response.statusCode == 200) {
